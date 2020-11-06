@@ -7,17 +7,17 @@ def generateRandomTelephone(number: int):
     for i in range(number):
         result = randint(0, 9)
         if result == 7:
-            result = "+79"
-            lenTelephone = 9
+            result = "+7"
+            lenTelephone = 10
         elif result == 8:
-            result = "89"
-            lenTelephone = 9
+            result = "8"
+            lenTelephone = 10
         elif result == 9:
-            lenTelephone = 8
+            lenTelephone = 9
         else:
-            lenTelephone = randint(1, 20)
+            lenTelephone = randint(1, 25)
         result = str(result)
-        for j in range(9):
+        for j in range(lenTelephone):
             digit = str(randint(0, 9))
             result += digit
         telephones.append(result)
@@ -46,8 +46,8 @@ print("Текстовый файл 'telephone.txt' открыт")
 correctTelephones = []
 for element in telephonesForAnalyze:
     if (len(element) == 10 and element[0] == '9') or (
-            len(element) == 11 and element[0] == '8' and element[1] == '9') or (
-            len(element) == 12 and element[0] == '+' and element[1] == '7' and element[2] == '9'):
+            len(element) == 11 and element[0] == '8') or (
+            len(element) == 12 and element[0] == '+' and element[1] == '7'):
         correctTelephones.append(element)
 print("Валидация проведена")
 
